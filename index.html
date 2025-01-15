@@ -1,99 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Ee's Website</title>
-    <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
-</head>
-<body>
-<header class="parallax">
-    <div class="container">
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="parallax">
+      <div class="container">
         <h1>Welcome to Ee's Website</h1>
         <p>Your journey to explore my world begins here!</p>
-    </div>
-</header>
+      </div>
+    </header>
 
-<nav>
-    <a href="#about">About Me</a>
-    <a href="#hobbies">Hobbies</a>
-    <a href="#contact">Contact</a>
-</nav>
+    <nav>
+      <a href="#about">About Me</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<main>
-    <!-- About Me Section -->
-    <section id="about">
+    <main>
+      <!-- About Me Section -->
+      <section id="about">
         <h2>About Me</h2>
-        <p>Hi, I'm Ee Natthanan, a Year 10 student with a passion for biomedical engineering, mathematics, and computer science. I'm always eager to explore new challenges, help others excel, and bring creative ideas to life!</p>
-        <img src="IMG_3789.JPG" alt="Picture of Ee">
-    </section>
+        <p>
+          Hi, I'm Ee Natthanan, a Year 10 student with a passion for biomedical
+          engineering, mathematics, and computer science. I'm always eager to
+          explore new challenges, help others excel, and bring creative ideas to
+          life!
+        </p>
+        <img src="IMG_3789.JPG" alt="Picture of Ee" />
+      </section>
 
-    <!-- Hobbies Section -->
-    <section id="hobbies">
+      <!-- Hobbies Section -->
+      <section id="hobbies">
         <h2>Hobbies & Interests</h2>
         <ul>
-            <li><span>Programming:</span> I enjoy working with C, C++, and Python in my free time.</li>
-            <li><span>Traveling:</span> Exploring new destinations and cultures is a joy.</li>
-            <li><span>Music:</span> Performing weekly at exciting venues fuels my creativity.</li>
-            <li><span>Side Projects:</span> I'm passionate about entrepreneurship and side hustles.</li>
-            <li><span>Cooking:</span> Experimenting with recipes helps me relax.</li>
+          <li>
+            <span>Programming:</span> I enjoy working with C, C++, and Python in
+            my free time.
+          </li>
+          <li>
+            <span>Traveling:</span> Exploring new destinations and cultures is a
+            joy.
+          </li>
+          <li>
+            <span>Music:</span> Performing weekly at exciting venues fuels my
+            creativity.
+          </li>
+          <li>
+            <span>Side Projects:</span> I'm passionate about entrepreneurship
+            and side hustles.
+          </li>
+          <li>
+            <span>Cooking:</span> Experimenting with recipes helps me relax.
+          </li>
         </ul>
-    </section>
+      </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+      <!-- Contact Section -->
+      <section id="contact">
         <h2>Contact Me</h2>
         <p>Feel free to reach out using the details below:</p>
         <div class="contact-details">
-            <div><strong>Email:</strong> ip220954@student.spip.in.th</div>
-            <div><strong>Phone:</strong> +66 99-909-5055</div>
+          <div><strong>Email:</strong> ip220954@student.spip.in.th</div>
+          <div><strong>Phone:</strong> +66 99-909-5055</div>
         </div>
+      </section>
+    </main>
+
+    <section id="closingmessage">
+      <h2>
+        Thank you for visiting my Website! Feel free to reach out to connect or
+        share ideas.
+      </h2>
     </section>
-</main>
 
-<section id="closingmessage">
-    <h2>Thank you for visiting my Website! Feel free to reach out to connect or share ideas.</h2>
-</section>
+    <div class="theme-toggle">
+      <button id="darkModeToggle">Toggle Dark Mode</button>
+    </div>
 
-<div class="theme-toggle">
-    <button id="darkModeToggle">Toggle Dark Mode</button>
-</div>
+    <footer>
+      <p>&copy; 2025 Ee Natthanan. All rights reserved.</p>
+    </footer>
 
-<footer>
-    <p>&copy; 2025 Ee Natthanan. All rights reserved.</p>
-</footer>
+    <script>
+      const toggleButton = document.getElementById("darkModeToggle");
+      toggleButton.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+      });
 
-<script>
-    const toggleButton = document.getElementById('darkModeToggle');
-    toggleButton.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-    });
+      function adjustTextColor() {
+        const header = document.querySelector("header.parallax");
+        const textElements = header.querySelectorAll("h1, p");
+      }
 
-    function adjustTextColor() {
-        const header = document.querySelector('header.parallax');
-        const textElements = header.querySelectorAll('h1, p');
-        
-        // Get background color at the center of the header
-        const rect = header.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const bgColor = getComputedStyle(document.elementFromPoint(centerX, centerY)).backgroundColor;
-    
-        // Convert to RGB values
-        const [r, g, b] = bgColor.match(/\d+/g).map(Number);
-        const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-    
-        // Adjust text color based on luminance (light or dark background)
-        const textColor = luminance > 0.5 ? 'black' : 'white';
-        textElements.forEach(el => {
-            el.style.color = textColor;
-        });
-    }
-    
-    // Adjust on page load and scroll
-    window.addEventListener('load', adjustTextColor);
-    window.addEventListener('scroll', adjustTextColor);
-</script>
-</body>
+      // Adjust on page load and scroll
+      window.addEventListener("load", adjustTextColor);
+      window.addEventListener("scroll", adjustTextColor);
+    </script>
+  </body>
 </html>
